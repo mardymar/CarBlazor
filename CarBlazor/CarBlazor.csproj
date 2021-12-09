@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Assets\Images\white42wd.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise.Bootstrap" Version="0.9.5.2" />
+    <PackageReference Include="bootstrap" Version="5.1.2" />
+    <PackageReference Include="NHibernate" Version="5.3.10" />
+    <PackageReference Include="Radzen.Blazor" Version="3.13.4" />
+  </ItemGroup>
+
+</Project>

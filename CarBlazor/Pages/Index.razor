@@ -1,0 +1,55 @@
+﻿@page "/"
+@using System.Linq
+@using Blazorise;
+@using Blazorise.Bootstrap;
+
+<Div class="row">
+    <Div style="float:left">
+        <h4>Wheels</h4>
+        <RadzenDropDown Style="width:50px; float:left;" Change="@Changed" TValue="int" @bind-Value="Wheels" Placeholder="Select Wheels" AllowFiltering="false" Data="@(lWheels)" TextProperty="Wheels" ValueProperty="Wheels" />
+    </Div>
+    <Div style="float:left;margin-left:50px">
+        <h4>Color</h4>
+        <RadzenDropDown Style="width:150px; float:left" Change="@Changed" TValue="string" @bind-Value="Color" Placeholder="Select Drive" AllowFiltering="false" Data="@(lColor)" TextProperty="Color" ValueProperty="Color" />
+    </Div>
+    @if (Wheels != 2)
+    {
+        <Div style="float:left;margin-left:50px">
+            <h4>Drive</h4>
+            <RadzenDropDown Style="width:150px; float:left" Change="@Changed" TValue="string" @bind-Value="Drive" Placeholder="Select Drive" AllowFiltering="false" Data="@(lDrive)" TextProperty="Drive" ValueProperty="Drive" />
+        </Div>
+    }
+</Div>
+<Div class="row">
+    <RadzenImage Path="@ImagePath" Style="width:50%; margin-top:150px;" />\
+</Div>
+
+
+
+@code {
+    static int Wheels = 4;
+    List<int> lWheels = new List<int> { 2, 4 };
+    static string Color = "white";
+    List<string> lColor = new List<string> { "white", "red", "blue" };
+    static string Drive = "2wd";
+    List<string> lDrive = new List<string> { "2wd", "4wd" };
+
+    string ImagePath = $@"Assets/Images/{Color + Wheels.ToString() + Drive}.jpg";
+
+    void Submit()
+    {
+
+    }
+
+
+    protected void Changed()
+    {
+        if (Wheels == 4){
+            ImagePath = $@"Assets/Images/{Color + Wheels.ToString() + Drive}.jpg";
+        } else {
+            ImagePath = $@"Assets/Images/{Color + Wheels.ToString()}.jpg";
+
+        }
+
+    }
+}
